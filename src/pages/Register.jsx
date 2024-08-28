@@ -1,5 +1,8 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { register } from '../redux/actions'; // Adjust the path as necessary
+import { addUser } from '../utils/registerInJson'; // Adjust the path as necessary
 
 const Register = () => {
     const [name, setName] = useState('');
@@ -7,22 +10,26 @@ const Register = () => {
     const [country, setCountry] = useState('');
     const [password, setPassword] = useState('');
     const navigate = useNavigate();
+    const dispatch = useDispatch();
 
-    const handleSubmit = (event) => {
+    const handleSubmit = async (event) => {
         event.preventDefault();
-        console.log(`Name: ${name}, Age: ${age}, Country: ${country}, Password: ${password}`);
+        const newUser = { name, age, country, password };
+        
+        // Dispatch the register action
+        dispatch(register(newUser));
+        
+        // Call the function to add the user to the JSON file
+        await addUser(newUser);
+        
+        localStorage.setItem('isAuthenticated', 'true');
         navigate('/', {
-            state: {
-                name,
-                age,
-                country,
-                password
-            }
-        }); // Redirect to home after submission
+            state: newUser
+        });
     };
 
     return (
-    <main>
+    <>
         <h1>Register</h1>
         <form onSubmit={handleSubmit}>
             <label htmlFor="name">Nombre:</label>
@@ -39,7 +46,7 @@ const Register = () => {
             <br />
             <button type="submit">Registrarse</button>
         </form>
-    </main>
+    </>
     );
 };
 

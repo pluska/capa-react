@@ -1,0 +1,40 @@
+// Colors
+$primary-color: #646cffaa; // Primary color
+$secondary-color: #61dafbaa; // Secondary color
+$heading-font: #f9fafb; // Header color
+$default-color: #1f2937; // Default color
+$light-mode-color: #F9fafb; // Light mode color
+$dark-mode-color: #1f2937; // Dark mode color
+
+// Fonts
+$font-family-header: 'Arial', sans-serif; // Font family for headers
+$font-family-paragraph: 'montserrat'; // Font family for paragraphs
+
+// Font sizes
+$font-size-header: 24px; // Font size for headers
+$font-size-paragraph: 16px; // Font size for paragraphs
+
+// Margins and Padding
+$margin: 10px; // Default margin
+$padding: 10px; // Default padding
+
+$xl-margin: $margin * 2; // Extra large margin
+$lg-margin: $margin * 1.5; // Large margin
+$md-margin: $margin * 1.2; // Medium margin
+$sm-margin: $margin * 0.8; // Small margin
+
+//background
+$background-color: $light-mode-color;
+
+// Media Queries
+$breakpoint-sm: 600px; // Small screen breakpoint
+$breakpoint-md: 900px; // Medium screen breakpoint
+$breakpoint-lg: 1200px; // Large screen breakpoint
+$breakpoint-xl: 1800px; // Extra large screen breakpoint
+
+// Other
+$border-radius: 20px; // Default border radius
+$box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); // Default box shadow
+
+$transition: all 0.3s ease; // Default transition
+

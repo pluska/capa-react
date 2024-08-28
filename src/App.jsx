@@ -8,9 +8,11 @@ import Profile from './pages/Profile';
 import Layout from './components/Layout';
 import ProfileSettings from './pages/ProfileSettings';
 import { Navigate } from 'react-router-dom';
+import AddReview from './pages/AddReview';
 
 
 
+// eslint-disable-next-line react/prop-types
 const PrivateRoute = ({ children }) => {
   const isAuthenticated = JSON.parse(localStorage.getItem('isAuthenticated'));
 
@@ -31,9 +33,9 @@ function App() {
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
           <Route path="/my-reviews" element={<PrivateRoute><MyReviews /></PrivateRoute>} />
-          <Route path="/profile" element={<PrivateRoute><Profile /></PrivateRoute>}>
-            <Route path="/profile/settings" element={<PrivateRoute><ProfileSettings /></PrivateRoute>} />
-          </Route>
+          <Route path="/profile" element={<PrivateRoute><Profile /></PrivateRoute>} />
+          <Route path="/profile/settings" element={<PrivateRoute><ProfileSettings /></PrivateRoute>} />
+          <Route path="/add-review" element={<PrivateRoute><AddReview /></PrivateRoute>} />
         </Routes>
       </Layout>
     </Router>

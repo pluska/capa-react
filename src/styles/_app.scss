@@ -1,0 +1,102 @@
+@use './_variables' as *;
+@use './_mixins' as *;
+@use './_functions' as *;
+
+// Global Styles
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  @include font-style($font-family-paragraph, calculate-em($font-size-paragraph), $default-color);
+  @include padding-margin($padding, $margin);
+  background-color: $light-mode-color;
+  margin: 0;
+  padding: 0;
+}
+
+// Header Styles
+header {
+  @include font-style($font-family-header, calculate-em($font-size-header), $heading-font);
+  @include padding-margin($padding, $margin);
+  background-color: $primary-color;
+  color: $heading-font;
+  text-align: center;
+}
+
+main {
+  @include font-style($font-family-paragraph, calculate-em($font-size-paragraph), $default-color);
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto;
+  align-content: center;
+  place-items: center;
+  margin: 0;
+  padding: calculate-padding(0);
+  margin-top: 2rem;
+}
+
+// Button Styles
+button {
+  @include font-style($font-family-header, calculate-em($font-size-header), $default-color);
+  @include padding-margin($padding, $margin);
+  background-color: $primary-color;
+  border: none;
+  border-radius: $border-radius;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  &:hover {
+    background-color: darken($primary-color, 10%);
+  }
+}
+
+// Form Styles
+form {
+  @include padding-margin($padding, $margin);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+input, textarea, select {
+  @include font-style($font-family-paragraph, calculate-em($font-size-paragraph), $default-color);
+  @include padding-margin($padding, $margin);
+  border: 1px solid $secondary-color;
+  border-radius: $border-radius;
+  margin-bottom: $margin;
+}
+
+footer {
+  @include font-style($font-family-header, calculate-em($font-size-header), $heading-font);
+  @include padding-margin($padding, $margin);
+  background-color: $primary-color;
+  color: $heading-font;
+  text-align: center;
+  margin: 0;
+  padding: 20px 0;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+// Media Queries
+@include media-query($breakpoint-sm) {
+  body {
+    font-size: calculate-em(14px);
+  }
+  header {
+    font-size: calculate-em(20px);
+  }
+  button {
+    font-size: calculate-em(18px);
+  }
+  input, textarea, select {
+    font-size: calculate-em(14px);
+  }
+}
+
+

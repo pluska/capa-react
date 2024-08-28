@@ -1,0 +1,19 @@
+@function calculate-rem($size) {
+  @return $size / 16px * 1rem;
+}
+
+@function calculate-em($size) {
+  @return $size / 16px * 1em;
+}
+
+@function calculate-vw($size) {
+  @return $size / 100 * 16 * 1vw;
+}
+
+@function calculate-vh($size) {
+  @return $size / 100 * 16 * 1vh;
+}
+
+@function calculate-padding($size) {
+  @return $size * 4px;
+}

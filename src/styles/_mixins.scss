@@ -1,0 +1,24 @@
+@mixin font-style($family, $size, $color) {
+  font-family: $family;
+  font-size: $size;
+  color: $color;
+}
+
+@mixin padding-margin($padding, $margin) {
+  padding: $padding;
+  margin: $margin;
+}
+
+@mixin box-shadow($shadow) {
+  box-shadow: $shadow;
+}
+
+@mixin border-radius($radius) {
+  border-radius: $radius;
+}
+
+@mixin media-query($breakpoint) {
+  @media (max-width: $breakpoint) {
+    @content;
+  }
+}

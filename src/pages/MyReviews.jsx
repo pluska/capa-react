@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 
 const MyReviews = () => {
     const { userId } = useParams();
@@ -40,8 +40,11 @@ const MyReviews = () => {
     };
 
     return (
-        <main>
+        <>
             <h1>My Reviews</h1>
+            <Link to="/add-review"> {/* Add Link to AddReview page */}
+                <button>Add a Review</button>
+            </Link>
             <ul>
                 {reviews.map(review => (
                     <li key={review.id}>
@@ -51,7 +54,7 @@ const MyReviews = () => {
                     </li>
                 ))}
             </ul>
-        </main>
+        </>
     );
 };
 
